@@ -9,14 +9,14 @@ license:              PublicDomain
 license-file:         LICENSE
 author:               Peter Harpending
 maintainer:           pharpend2@gmail.com
--- copyright:            
+copyright:            2014, Peter Harpending.
 category:             Math
 build-type:           Simple
 -- extra-source-files:  
 cabal-version:       >=1.10
 
 library
-  -- exposed-modules:     
+  exposed-modules:     Tropical.Tropical, Tropical.Scalar
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.6 && <4.7

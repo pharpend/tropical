@@ -1,4 +1,4 @@
--- Tropical.Types - types of tropical things
+-- Tropical.Tropical - the definition of tropical
 --
 -- Copyright (c) 2014, Peter Harpending. <pharpend2@gmail.com>
 -- All rights reserved.
@@ -28,40 +28,14 @@
 -- ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 -- OF THE POSSIBILITY OF SUCH DAMAGE.
 
-{-# LANGUAGE InstanceSigs #-}
-{-# LANGUAGE RankNTypes #-}
-
 -- |Module for tropical things
-module Tropical.Types where
+module Tropical.Tropical where
 
-class (Eq t) => Tropical t where
+-- |The tropical semiring is {R, infinity, <+>, <*>}. This class says
+-- that <+> and <*> need to be defined for any tropical *thing*, be it
+-- a scalar, vector, matrix, what have you. It also requires that you
+-- be able to determine if two tropical things are equal to each
+-- other, and that the two tropical things be sortable.
+class (Eq t, Ord t) => Tropical t where
   (<+>) :: t -> t -> t
   (<*>) :: t -> t -> t
-
-data Number = Number { real :: (Real a) => a }
-            | Infinity
-
-instance Tropical Number where
-  (<+>) :: Number -> Number -> Number
-  a <+> Infinity  = a
-  Infinity <+> b  = b
-  Number a <+> Number b         = Number $ min a b
-
-  (<*>) :: Number -> Number -> Number
-  a <*> b
-    | Infinity==a || Infinity==b  = Infinity
-    | otherwise                   = Number $ (real a) + (real b)
-
-instance Eq Number where
-  (==) :: Number -> Number ->  Bool
-  Number a == Infinity    = False
-  Infinity == Number b    = False
-  Infinity == Infinity    = True
-  Number a == Number b    = a==b
-
-  (/=) :: Number -> Number -> Bool
-  Number b /= Infinity  = True
-  Infinity /= Number b  = True
-  Infinity /= Infinity  = False
-  Number a /= Number b  = a/=b
-
