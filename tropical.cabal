@@ -16,9 +16,9 @@ build-type:           Simple
 cabal-version:       >=1.10
 
 library
-  exposed-modules:     Tropical.Tropical, Tropical.Scalar
+  exposed-modules:     Tropical.Matrix, Tropical.Scalar, Tropical.Tropical 
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base >=4.6 && <4.7
+  build-depends:       base >=4.6 && <4.7, matrix >=0.3 && <0.4
   -- hs-source-dirs:      
   default-language:    Haskell2010
