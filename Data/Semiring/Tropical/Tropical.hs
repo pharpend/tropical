@@ -1,4 +1,4 @@
--- Tropical.Matrix - a module for matrices.
+-- Data.Semiring.Tropical.Tropical - the definition of tropical
 --
 -- Copyright (c) 2014, Peter Harpending. <pharpend2@gmail.com>
 -- All rights reserved.
@@ -28,12 +28,14 @@
 -- ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 -- OF THE POSSIBILITY OF SUCH DAMAGE.
 
-{-# LANGUAGE ImpredicativeTypes #-}
+-- |Module for tropical things
+module Data.Semiring.Tropical.Tropical where
 
--- |Matrices with tropical numbers
-module Tropical.Matrix where
+import Data.Semiring
 
-import qualified Data.Matrix as Mat
-import Tropical.Tropical
-
-type Matrix = (Tropical t) => Mat.Matrix t
+-- |The tropical semiring is {R union {infinity}, '.+.', '.*.'}. This
+-- class says that '.+.' and '.*.' need to be defined for any tropical
+-- *thing*, be it a scalar, vector, matrix, what have you. It also
+-- requires that you be able to determine if two tropical things are
+-- equal to each other, and that the two tropical things be sortable.
+class (Ord t, Semiring t) => Tropical t

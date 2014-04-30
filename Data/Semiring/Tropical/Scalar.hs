@@ -1,4 +1,4 @@
--- Tropical.Scalar - a file for tropical numbers
+-- Data.Semiring.Tropical.Scalar - a file for tropical numbers
 --
 -- Copyright (c) 2014, Peter Harpending. <pharpend2@gmail.com>
 -- All rights reserved.
@@ -32,10 +32,10 @@
 {-# LANGUAGE RankNTypes #-}
 
 -- |Module for Tropical Scalars
-module Tropical.Scalar where
+module Data.Semiring.Tropical.Scalar where
 
 import Data.Ord
-import Tropical.Tropical
+import Data.Semiring.Tropical.Tropical
 
 -- |Data type for a tropical scalar. You can either have a normal
 -- scalar, which is just a real number. Or, you can have Infinity,
@@ -43,17 +43,17 @@ import Tropical.Tropical
 data Scalar = Scalar { real :: (Real a) => a }
             | Infinity
 
--- |Making the scalar tropical. <+> is the minimum, and <*> is the
+-- |Making the scalar tropical. '.+.' is the minimum, and '.*.' is the
 -- sum. Infinity is the additive identity, and the multiplicative
 -- zero.
 instance Tropical Scalar where
-  (<+>) :: Scalar -> Scalar -> Scalar
-  a <+> Infinity  = a
-  Infinity <+> b  = b
-  a <+> b         = min a b
+  (.+.) :: Scalar -> Scalar -> Scalar
+  a .+. Infinity  = a
+  Infinity .+. b  = b
+  a .+. b         = min a b
 
-  (<*>) :: Scalar -> Scalar -> Scalar
-  a <*> b
+  (.*.) :: Scalar -> Scalar -> Scalar
+  a .*. b
     | Infinity==a || Infinity==b  = Infinity
     | otherwise                   = Scalar $ (real a) + (real b)
 

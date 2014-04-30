@@ -1,4 +1,4 @@
--- Data.Semiring.Tropical.Skel - a skeleton file for tropical
+-- Data.Semiring.Tropical.Matrix - a module for matrices.
 --
 -- Copyright (c) 2014, Peter Harpending. <pharpend2@gmail.com>
 -- All rights reserved.
@@ -28,5 +28,16 @@
 -- ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 -- OF THE POSSIBILITY OF SUCH DAMAGE.
 
--- |Skeleton module for tropical
-module Data.Semiring.Tropical.Skel where
+-- |Matrices with tropical numbers
+module Data.Semiring.Tropical.Matrix where
+
+import qualified Data.Matrix as Mat
+import qualified Data.Vector as Vec
+import Data.Semiring.Tropical.Tropical
+import Data.Semiring.Tropical.Scalar
+
+-- |A tropical matrix is just a matrix of tropical scalars.
+type Matrix = Mat.Matrix Scalar
+
+-- |Likewise, a tropical vector is just a vector os 
+type Vector = Vec.Vector Scalar
