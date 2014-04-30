@@ -1,9 +1,0 @@
-<h1 id="tropical">Tropical</h1>
-<p>Tropical numbers are the same as real numbers, except the operations are different. You can compound these operations, and get tropical vectors, tropical matrices, etc. This package is a Haskell library dealing with tropical things.</p>
-<h2 id="formal-definition-of-tropicality">Formal definition of tropicality</h2>
-<p>The tropical semiring is <span class="math">{R,  ∞,   ⊕ ,   ⊙ }</span>. The scalar operations are defined as such:</p>
-<p><br /><span class="math"><em>a</em> ⊕ <em>b</em> = <em>m</em><em>i</em><em>n</em> {<em>a</em>,  <em>b</em>}</span><br /> <br /><span class="math"><em>a</em> ⊙ <em>b</em> = <em>a</em> + <em>b</em></span><br /></p>
-<p>Note the difference between <span class="math"> + </span> and <span class="math"> ⊕ </span>. Also note, since there is no inverse classical minimum, (classical maximum doesn’t count), you cannot tropical subtract. There is, however, inverse classical addition, so you can tropical divide (classical subtract).</p>
-<p>When coding, typing <span class="math"> ⊕ </span> and <span class="math"> ⊙ </span> would require some fancy tricks with Unicode. Because of this, we denote them <code>&lt;+&gt;</code> and <code>&lt;*&gt;</code>, respectively.</p>
-<h2 id="contributing">Contributing</h2>
-<p>Anyone who wants to contribute is more than welcome. This library is BSD-licensed, so you can pretty much do what you want with it.</p>
