@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                 tropical
-version:              0.0.0.1
+version:              0.1.0.0
 synopsis:             A library for tropical mathematics.
 description:          Tropical numbers are the same as real numbers, except the operations are different. See the documentation for more information.
 license:              OtherLicense
@@ -12,7 +12,7 @@ maintainer:           pharpend2@gmail.com
 copyright:            2014, Peter Harpending.
 category:             Math
 build-type:           Simple
--- extra-source-files:   README.md
+extra-source-files:   README.md
 cabal-version:       >=1.10
 
 library

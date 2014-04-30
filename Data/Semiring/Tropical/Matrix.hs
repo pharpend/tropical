@@ -33,7 +33,6 @@ module Data.Semiring.Tropical.Matrix where
 
 import qualified Data.Matrix as Mat
 import qualified Data.Vector as Vec
-import Data.Semiring.Tropical.Tropical
 import Data.Semiring.Tropical.Scalar
 
 -- |A tropical matrix is just a matrix of tropical scalars.

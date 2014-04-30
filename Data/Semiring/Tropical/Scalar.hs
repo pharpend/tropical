@@ -28,13 +28,13 @@
 -- ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 -- OF THE POSSIBILITY OF SUCH DAMAGE.
 
-{-# LANGUAGE InstanceSigs #-}
 {-# LANGUAGE RankNTypes #-}
 
 -- |Module for Tropical Scalars
 module Data.Semiring.Tropical.Scalar where
 
 import Data.Ord
+import Data.Semiring
 import Data.Semiring.Tropical.Tropical
 
 -- |Data type for a tropical scalar. You can either have a normal
@@ -46,13 +46,14 @@ data Scalar = Scalar { real :: (Real a) => a }
 -- |Making the scalar tropical. '.+.' is the minimum, and '.*.' is the
 -- sum. Infinity is the additive identity, and the multiplicative
 -- zero.
-instance Tropical Scalar where
-  (.+.) :: Scalar -> Scalar -> Scalar
+instance Semiring Scalar where
+  zero  = Infinity
+  one   = Scalar 1
+
   a .+. Infinity  = a
   Infinity .+. b  = b
   a .+. b         = min a b
 
-  (.*.) :: Scalar -> Scalar -> Scalar
   a .*. b
     | Infinity==a || Infinity==b  = Infinity
     | otherwise                   = Scalar $ (real a) + (real b)
@@ -62,13 +63,11 @@ instance Tropical Scalar where
 -- equal to infinity. To compare two scalars, you simply compare their
 -- real value.
 instance Eq Scalar where
-  (==) :: Scalar -> Scalar ->  Bool
   Scalar _ == Infinity    = False
   Infinity == Scalar _    = False
   Infinity == Infinity    = True
   Scalar a == Scalar b    = a==b
 
-  (/=) :: Scalar -> Scalar -> Bool
   Scalar _ /= Infinity  = True
   Infinity /= Scalar _  = True
   Infinity /= Infinity  = False
@@ -77,7 +76,6 @@ instance Eq Scalar where
 -- |To order scalars, we just compare their real values. Unless one of
 -- them is infinity, of course.
 instance Ord Scalar where
-  compare :: Scalar -> Scalar -> Ordering
   compare Infinity Infinity     = EQ
   compare (Scalar _) Infinity   = LT
   compare Infinity (Scalar _)   = GT
