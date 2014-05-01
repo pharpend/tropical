@@ -61,3 +61,9 @@ instance Ord Scalar where
   compare (Scalar _) Infinity   = LT
   compare Infinity (Scalar _)   = GT
   compare a b                   = comparing real a b
+
+-- |Tropical exponentiation - same as classical multiplication
+(.^.) :: Scalar -> Scalar -> Scalar
+a .^. b
+  | Infinity==a || Infinity==b  = Infinity
+  | otherwise                   = Scalar $ (real a) * (real b)

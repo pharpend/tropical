@@ -1,6 +1,6 @@
 -- |
--- Module       : Data.Semiring.Tropical.Skel
--- Description  : A module for Tropical whatever
+-- Module       : Data.Semiring.Tropical
+-- Description  : The definition of tropicality
 -- Copyright    : (c) Peter Harpending, 2014
 -- License      : BSD3
 -- Maintainer   : pharpend2@gmail.com
