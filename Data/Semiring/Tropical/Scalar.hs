@@ -70,11 +70,9 @@ a .^. b
   | Infinity==a || Infinity==b  = Infinity
   | otherwise                   = Scalar $ (real a) * (real b)
 
-
 -- |Tropical division. Remember, if Infinity is tropical zero, then
 -- you can't divide by it!
 (./.) :: Scalar -> Scalar -> Scalar
-a ./. Infinity          = undefined
+_ ./. Infinity          = undefined
 Infinity ./. b          = b
-Infinity ./. Infinity   = undefined
 a ./. b                 = Scalar $ (real a) - (real b)
