@@ -4,7 +4,7 @@
 -- Module       : Data.Semiring.Tropical.Scalar
 -- Description  : A module for Tropical scalars
 -- Copyright    : (c) Peter Harpending, 2014
--- License      : OtherLicense
+-- License      : BSD3
 -- Maintainer   : pharpend2@gmail.com
 -- Stability    : experimental
 -- Portability  : Linux
