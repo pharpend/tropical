@@ -35,7 +35,7 @@ module Data.Semiring.Tropical.Scalar where
 
 import Data.Ord
 import Data.Semiring
-import Data.Semiring.Tropical.Tropical
+import Data.Semiring.Tropical
 
 -- |Data type for a tropical scalar. You can either have a normal
 -- scalar, which is just a real number. Or, you can have Infinity,

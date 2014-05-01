@@ -1,4 +1,4 @@
--- Data.Semiring.Tropical.Tropical - the definition of tropical
+-- Data.Semiring.Tropical - the definition of tropical
 --
 -- Copyright (c) 2014, Peter Harpending. <pharpend2@gmail.com>
 -- All rights reserved.
@@ -29,7 +29,7 @@
 -- OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -- |Module for tropical things
-module Data.Semiring.Tropical.Tropical where
+module Data.Semiring.Tropical where
 
 import Data.Semiring
 
