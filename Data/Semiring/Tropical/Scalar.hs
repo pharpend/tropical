@@ -62,8 +62,19 @@ instance Ord Scalar where
   compare Infinity (Scalar _)   = GT
   compare a b                   = comparing real a b
 
--- |Tropical exponentiation - same as classical multiplication
+-- |Tropical exponentiation - same as classical multiplication. A
+-- mildly interesting correlary is that tropical exponentiation is
+-- commutative. That is, y .^. x = x .^ y, for x and y tropical.
 (.^.) :: Scalar -> Scalar -> Scalar
 a .^. b
   | Infinity==a || Infinity==b  = Infinity
   | otherwise                   = Scalar $ (real a) * (real b)
+
+
+-- |Tropical division. Remember, if Infinity is tropical zero, then
+-- you can't divide by it!
+(./.) :: Scalar -> Scalar -> Scalar
+a ./. Infinity          = undefined
+Infinity ./. b          = b
+Infinity ./. Infinity   = undefined
+a ./. b                 = Scalar $ (real a) - (real b)
