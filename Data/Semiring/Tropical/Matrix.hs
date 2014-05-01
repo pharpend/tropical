@@ -6,6 +6,7 @@
 -- Maintainer   : pharpend2@gmail.com
 -- Stability    : experimental
 -- Portability  : Linux
+
 module Data.Semiring.Tropical.Matrix where
 
 import qualified Data.Matrix as Mat

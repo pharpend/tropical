@@ -21,12 +21,15 @@ import Data.Semiring.Tropical
 data Scalar = Scalar { real :: (Real a) => a }
             | Infinity
 
--- |Making the scalar tropical. '.+.' is the minimum, and '.*.' is the
--- sum. Infinity is the additive identity, and the multiplicative
--- zero.
+-- |Tropical things alone don't have any of their own functions.
+instance Tropical Scalar
+
+-- |Making the tropical scalar a semiring. '.+.' is the minimum, and
+-- '.*.' is the sum. Infinity is the additive identity, and the
+-- multiplicative zero.
 instance Semiring Scalar where
   zero  = Infinity
-  one   = Scalar 1
+  one   = Scalar 0
 
   a .+. Infinity  = a
   Infinity .+. b  = b
