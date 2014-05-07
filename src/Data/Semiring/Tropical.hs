@@ -1,11 +1,16 @@
--- |
--- Module       : Data.Semiring.Tropical
--- Description  : The definition of tropicality
--- Copyright    : (c) Peter Harpending, 2014
--- License      : BSD3
--- Maintainer   : pharpend2@gmail.com
--- Stability    : experimental
--- Portability  : Linux
+{-|
+Module       : Data.Semiring.Tropical
+Description  : The definition of tropicality
+Copyright    : (c) Peter Harpending, 2014
+License      : BSD3
+Maintainer   : pharpend2@gmail.com
+Stability    : experimental
+Portability  : Linux
+
+This file just contains the minimal definition of "tropical," meaning
+any tropical object has to be an ordered semiring.
+
+-}
 
 module Data.Semiring.Tropical where
 
