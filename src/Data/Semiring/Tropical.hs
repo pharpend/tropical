@@ -1,11 +1,9 @@
-{-# LANGUAGE InstanceSigs #-}
-
 {-|
 Module       : Data.Semiring.Tropical
 Description  : The definition of tropicality
 Copyright    : 2014, Peter Harpending.
 License      : BSD3
-Maintainer   : Peter Harpending <pharpend2@gmail.com
+Maintainer   : Peter Harpending <pharpend2@gmail.com>
 Stability    : experimental
 Portability  : Linux
 
@@ -16,7 +14,6 @@ any tropical object has to be an ordered semiring.
 
 module Data.Semiring.Tropical where
 
-import Data.Ord
 import Data.Semiring
 
 -- |Tropical numbers are like real numbers, except zero is the same
@@ -44,7 +41,7 @@ instance Real a => Semiring (Tropical a) where
 -- you can't divide by it!
 (./.) :: Real a => Operator (Tropical a)
 _ ./. Infinity          = undefined
-Infinity ./. b          = Infinity
+Infinity ./. _          = Infinity
 a ./. b                 = Tropical $ (realValue a) - (realValue b)
 
 -- -- |Tropical exponentiation - same as classical multiplication. A
