@@ -4,7 +4,9 @@
 name:                 tropical
 version:              0.1.0.0
 synopsis:             A library for tropical mathematics.
-description:          Tropical numbers are the same as real numbers, except the operations are different. See the documentation for more information.
+description:
+  Tropical numbers are the same as real numbers, except the operations are
+  different. See the documentation for more information.
 license:              BSD3
 license-file:         LICENSE
 author:               Peter Harpending
@@ -13,13 +15,16 @@ copyright:            2014, Peter Harpending.
 category:             Math
 build-type:           Simple
 extra-source-files:   README.md
-cabal-version:       >=1.10
+cabal-version:        >=1.10
 
 library
-  exposed-modules:     Data.Semiring.Tropical, Data.Semiring.Tropical.Scalar 
+  exposed-modules:
+      Data.Semiring.Tropical
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base >=4.7 && <4.8, semiring-simple >=0.2.0.0
+  build-depends:
+      base            >=4.7 && <4.8
+    , semiring-simple >=0.2
   hs-source-dirs:      src/
   default-language:    Haskell2010
 
