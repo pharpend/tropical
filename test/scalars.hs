@@ -26,10 +26,28 @@ compareTropical _ Infinity        = LT
 compareTropical Infinity _        = GT
 compareTropical a b               = comparing realValue a b
 
-testOrdering :: Real a => TestTrop a
-testOrdering a b = (compare a b) == (compareTropical a b)
+testOrdering :: Real a => TestTrop a 
+testOrdering x y = (compare x y) == (compareTropical x y)
+
+testTS :: Real a => TestTrop a
+testTS x y = x .+. y == min x y
+
+testTSCommute :: Real a => TestTrop a
+testTSCommute x y = x .+. y == y .+. x
+
+testTPCommute :: Real a => TestTrop a
+testTPCommute x y = x .*. y == y .*. x
+
+testTECommute :: Real a => TestTrop a
+testTECommute x y = x .^. y == y .^. x
 
 main = do
-    quickCheck (testOrdering :: TestTrop Int)
-    quickCheck (testOrdering :: TestTrop Double)
+    doubleChk testOrdering
+    doubleChk testTS
+    doubleChk testTSCommute
+    doubleChk testTPCommute
+    doubleChk testTECommute
 
+  where 
+    doubleChk tst = do                        
+      quickCheck (tst :: TestTrop Double)    
