@@ -41,13 +41,19 @@ testTPCommute x y = x .*. y == y .*. x
 testTECommute :: Real a => TestTrop a
 testTECommute x y = x .^. y == y .^. x
 
+testTLog :: (Fractional a, Real a) => TestTrop a
+testTLog b@(Tropical x) v@(Tropical y) = logT b v == (Tropical $ y / x)
+testTLog _ _                           = False
+
 main = do
     doubleChk testOrdering
     doubleChk testTS
     doubleChk testTSCommute
     doubleChk testTPCommute
     doubleChk testTECommute
+    doubleChk testTLog
 
   where 
     doubleChk tst = do                        
       quickCheck (tst :: TestTrop Double)    
+      quickCheck ((\x -> False) :: Int -> Bool)
